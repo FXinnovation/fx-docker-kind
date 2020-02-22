@@ -1,0 +1,5 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+networking:
+  apiServerAddress: "{{ getenv "API_SERVER_ADDRESS" }}"
+  apiServerPort: {{ getenv "API_SERVER_PORT" }}

@@ -1,0 +1,66 @@
+#!/bin/sh
+set -x -eo pipefail
+
+###
+# Dependencies
+###
+
+mv /resources/entrypoint /usr/local/bin
+
+apk add --update --no-cache \
+  go=$GO_VERSION \
+  curl=$CURL_VERSION \
+  iptables=$IPTABLES_VERSION \
+  libc-dev=$LIBC_DEV_VERSION
+
+GO111MODULE="on" go get sigs.k8s.io/kind@v$KIND_VERSION
+
+###
+# Installation
+###
+
+curl -LO https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+mv ./kubectl /usr/local/bin/kubectl
+
+curl -Lo ./kind "https://github.com/kubernetes-sigs/kind/releases/download/v${KIND_VERSION}/kind-$(uname)-amd64"
+chmod +x ./kind
+mv ./kind /usr/local/bin/kind
+
+###
+# Confd
+###
+
+curl -sSL \
+  -o /resources/confd_binary \
+  https://github.com/kelseyhightower/confd/releases/download/v${CONFD_VERSION}/confd-${CONFD_VERSION}-linux-amd64
+
+mkdir -p /opt/confd/bin
+mkdir -p /etc/confd
+mv /resources/confd_binary /opt/confd/bin/confd
+chmod +x /opt/confd/bin/confd
+ln -s /opt/confd/bin/confd /usr/local/bin/confd
+
+mv /resources/confd/conf.d /etc/confd
+mv /resources/confd/templates /etc/confd
+
+###
+# Validation
+###
+
+kind version
+
+###
+# Cleaning
+###
+
+apk del curl
+
+###
+# CIS Hardening
+###
+
+chmod 0600 /etc/shadow
+
+touch /etc/login.defs
+chmod 0444 /etc/login.defs
