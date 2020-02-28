@@ -1,6 +1,7 @@
 FROM docker:19.03.5-dind
 
 ENV KIND_VERSION=0.7.0 \
+    KIND_LOGLEVEL=info \
     IPTABLES_VERSION=1.8.3-r1 \
     CURL_VERSION=7.67.0-r0 \
     GO_VERSION=1.13.4-r1 \
