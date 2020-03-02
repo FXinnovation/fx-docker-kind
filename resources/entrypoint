@@ -17,9 +17,9 @@ dockerd \
 # Running confd
 confd -onetime -backend env
 
-kind create cluster --config=/tmp/cluster.yaml --loglevel=$KIND_LOGLEVEL --image=$KIND_IMAGE
+kind create cluster --config=/tmp/cluster.yaml --loglevel=$KIND_LOGLEVEL
 
-trap cleanup EXIT
+trap cleanup SIGTERM
 
 while true
 do

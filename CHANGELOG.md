@@ -1,7 +1,10 @@
-0.1.0 / 2020-02-24
+0.2.0 / 2020-03-02
 ==================
 
   * fix: daemon infinite loop
+  * fix: trap signal (was EXIT, now trap only SIGTERM)
+  * feat: Add KIND\_LOGLEVEL environment variable
+  * feat: Improved logs
 
 0.1.0 / 2020-02-24
 ==================
