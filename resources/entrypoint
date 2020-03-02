@@ -3,7 +3,9 @@
 set -e
 
 cleanup() {
+  echo "Deleting kind cluster now..."
   kind delete cluster
+  echo "Cluster kind deleted."
 }
 
 # Launching Docker in background
