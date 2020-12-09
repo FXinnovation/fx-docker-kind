@@ -1,7 +1,9 @@
 0.3.0 / 2020-12-09
 ==================
 
-  * chore: add pre-commit
+  * maintenance: bump kind to `0.9.0`
+  * maintenance: bump source image to `docker:19.03.14-dind`
+  * maintenance: bump iptables, curl, go & libc\_dev
 
 0.2.0 / 2020-03-02
 ==================
