@@ -1,4 +1,4 @@
-FROM docker:19.03.14-dind
+FROM docker:20.10.8-dind
 
 ENV KIND_VERSION=0.9.0 \
     KIND_LOGLEVEL=info \
@@ -29,7 +29,7 @@ ENTRYPOINT ["entrypoint"]
 LABEL "maintainer"="cloudsquad@fxinnovation.com" \
       "org.label-schema.name"="kind" \
       "org.label-schema.base-image.name"="docker.io/library/docker" \
-      "org.label-schema.base-image.version"="19.03.5-dind" \
+      "org.label-schema.base-image.version"="20.10.8-dind" \
       "org.label-schema.description"="Kind in a container" \
       "org.label-schema.url"="https://github.com/kubernetes-sigs/kind/" \
       "org.label-schema.vcs-url"="https://scm.dazzlingwrench.fxinnovation.com/fxinnovation-public/docker-kind" \
