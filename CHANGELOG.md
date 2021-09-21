@@ -5,9 +5,9 @@
   * (BREAKING) chore: pins docker base image to 20.10.8-dind
   * feat: pins kind to version v0.11.1
   * chore: pins kubectl to v0.21.4
-  * chore: pins golang to version 1.15.15-r0
-  * chore: pins curl to version 7.78.0-r0
-  * chore: pins iptables to 1.8.6-r0
+  * chore: pins golang to version 1.16.8-r0
+  * chore: pins curl to version 7.79.0-r0
+  * chore: pins iptables to 1.8.7-r1
   * chore: pins pre-commit hooks to v4.0.1
 
 0.3.1 / 2020-12-10
